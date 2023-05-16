@@ -1,0 +1,112 @@
+\begin{multline}
+  T\brak{n} =
+  \begin{cases}
+  T\brak{n/2} + T\brak{2n/5} + 7n & \text{if } n>0 \\
+  1 & \text{if } n=0
+  \end{cases}
+\end{multline}
+
+Which one of the following options is correct?
+\begin{enumerate}
+    \item $T\brak{n} = \mathcal{O}\brak{n^{\frac{5}{2}}}$
+    \item $T\brak{n} = \mathcal{O}\brak{n\log n}$
+    \item $T\brak{n} = \mathcal{O}\brak{n}$
+    \item $T\brak{n} = \mathcal{O}\brak{\brak{\log n}^{\frac{5}{2}}}$
+\end{enumerate}
+\section{Solution}
+We need to calculate the worst case time complexity of the given recurrence relation.
+\\
+Let us start by drawing the recurrence tree for the given problem. 
+\\
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[level/.style={sibling distance=35mm/#1}]
+\node [circle,draw] \brak{z}{$7n$}
+  child {node [circle,draw] \brak{a} {$7\brak{\frac{n}{2}}$}
+    child {node [circle,draw] \brak{b} {$7\brak{\frac{n}{2^2}}$}
+      child {node {$\vdots$}
+      } 
+      child {node {$\vdots$}}
+    }
+    child {node [circle,draw] \brak{g} {$7\brak{\frac{2n}{10}}$}
+      child {node {$\vdots$}}
+      child {node {$\vdots$}}
+    }
+  }
+  child {node [circle,draw] \brak{j} {$7\brak{\frac{2n}{5}}$}
+    child {node [circle,draw] \brak{k} {$7\brak{\frac{2n}{10}}$}
+      child {node {$\vdots$}}
+      child {node {$\vdots$}}
+    }
+  child {node [circle,draw] \brak{l} {$7n\brak{\frac{2}{5}}^2$}
+    child {node {$\vdots$}}
+    child {node \brak{c}{$\vdots$}
+            child [grow=right] {node \brak{r} {$\vdots$} edge from parent[draw=none]
+              child [grow=up] {node \brak{s} {$7\brak{\frac{9}{10}}^2 n$} edge from parent[draw=none]
+                child [grow=up] {node \brak{t} {$7\brak{\frac{9}{10}}n$} edge from parent[draw=none]
+                  child [grow=up] {node \brak{u} {$7n$} edge from parent[draw=none]}
+                }
+              }
+            }
+    }
+  }
+};
+
+\end{tikzpicture}
+\caption{Recurrence Tree} \label{fig:M1}
+\end{figure}
+
+Since, $\dfrac{n}{2}>\dfrac{2n}{5}$, So, the height of the rightmost subtree will determine the lower bound of the given recurrence, and the height of the leftmost subtree will determine the upper bound of the given recurrence.
+
+Height of the leftmost subtree is : $\log_{2}n $ and so
+
+\begin{align}
+    T\brak{n} &\leqslant 7n + 7\brak{\frac{9}{10}}n + 7\brak{\frac{9}{10}}^2 n + \dots + 7\brak{\frac{9}{10}}^{\log_{2}n} n \\
+    T\brak{n} &\leqslant 7n\brak{1 + \frac{9}{10} + 7\brak{\frac{9}{10}}^2 + \dots + 7\brak{\frac{9}{10}}^{\log_{2}n}} \\
+    T\brak{n} &\leqslant 7n\dfrac{1-\brak{\frac{9}{10}}^{\log_{2} n + 1}}{1-\frac{9}{10}} \\
+    T\brak{n} &\leqslant 70n - 70n\brak{n^{\log_{2}\frac{9}{10}} \frac{9}{10}} \\
+    &= 70n - 63n^{0.85} \\
+    \implies T\brak{n} &\leqslant 70n\\
+    \implies T\brak{n} &\in \mathcal{O}\brak{n}
+\end{align}
+
+Height of the rightmost subtree is :$log_{5/2}n$ and so,
+\begin{align}
+    T\brak{n} &\geqslant 7n + 7\brak{\frac{9}{10}}n + 7\brak{\frac{9}{10}}^2 n + \dots + 7\brak{\frac{9}{10}}^{\log_{5/2}n} n \\
+    T\brak{n} &\geqslant 7n\brak{1 + \frac{9}{10} + 7\brak{\frac{9}{10}}^2 + \dots + 7\brak{\frac{9}{10}}^{\log_{5/2}n}} \\
+    T\brak{n} &\geqslant 7n\dfrac{1-\brak{\frac{9}{10}}^{\log_{5/2} n + 1}}{1-\frac{9}{10}} \\
+    T\brak{n} &\geqslant 70n - 70n\brak{n^{\log_{5/2}\frac{9}{10}} \frac{9}{10}} \\
+    &= 70n - 63n^{0.89} \\
+    T\brak{n} &\geqslant n\brak{70 - \frac{63}{n^{0.11}}}
+\end{align}
+Since we consider complexity for large n,
+$\lim_{n \to \infty} \frac{63}{n^{0.11}} = 0$
+So $T\brak{n} \geqslant 70n$
+
+\section{Answer}
+\begin{align}
+\bullet T\brak{n} \in \mathcal{O}\brak{n} \\
+\bullet T\brak{n} \sim 70n
+\end{align}
+Hence option 3 is correct
+
+\section{Verification}
+To verify the theoretical results, I constructed a recursive function with given recurrence relation and measure the execution time for different n.
+
+Here is the plot
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.6]{figs/plot.eps}
+    \caption{T\brak{n} vs n}
+    \label{fig:verification}
+\end{figure}
+
+We can clearly observe a linear curve. This verifies that 
+$T\brak{n} \in \mathcal{O}\brak{n}$
+\\
+\\
+This plot can be generated through the following python script
+\begin{lstlisting}
+https://github.com/aayush2710/EE4013-Assignment1/code/verification.py
+\end{lstlisting}
+\end{document}

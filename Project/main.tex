@@ -1,0 +1,101 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{K Mean Clustering and its Application in Image Segmentation}
+
+
+\author{\IEEEauthorblockN{Tanmay Garg}
+\IEEEauthorblockA{\textit{CS20BTECH11063}}
+\and
+\IEEEauthorblockN{Tanay Yadav}
+\IEEEauthorblockA{\textit{AI20BTECH11026} }
+
+}
+
+\maketitle
+
+\begin{abstract}
+
+The K-means algorithm is a widely used method for clustering data into distinct groups. In this project, we explore the application of K-means clustering for semantic segmentation, a process of assigning a semantic label to each pixel in an image. We also analyze different methods of finding the optimal value of K and how they differ in terms of speed and efficiency.
+% Add few more lines in abstract
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+K-Means, Clustering, Semantic Segmentation, Unsupervised Learning
+\end{IEEEkeywords}
+
+\section{Introduction}
+Clustering is one of the most popular analytical methods used to establish an interpretation of the inherent structure of data among the numerous data analysis techniques under the Unsupervised Learning Domain. It is the process of locating homogeneous subgroups or substructures in the data so that the data points in each cluster are identical in terms of an application-dependent similarity metric, such as euclidean-based distance, correlation-based distance, etc.
+
+\section{Applications of Clustering Algorithms}
+Data patterns are typically found using clustering algorithms in a variety of fields, including finance, marketing, biology, computer science, and recommendation systems. These algorithms aggregate related data points and have applications in individualized recommendations, customer segmentation, analysis of gene expression document categorization, and image segmentation. Clustering algorithms are a useful tool in data analysis due to their versatility and importance.
+
+\section{Clustering Algorithms}
+K-Means, Hierarchical Clustering, DBSCAN, and Gaussian Mixture Model are some of the clustering algorithms that are most frequently employed. A quick and effective approach for grouping data into clusters with similar variance is K-Means. A hierarchy of clusters is built from the bottom up using a tree-based method called hierarchical clustering. DBSCAN is a density-based algorithm that groups together data points in a dense area that is close to one another. Each cluster is seen as a Gaussian distribution in the probabilistic Gaussian Mixture Model. The choice of clustering method depends on the specific objectives of the task because each algorithm has advantages and drawbacks of its own.
+
+In this report, we would be understanding and applying K Means Clustering.
+\section{K Means Clustering}
+K Means Clustering algorithm is an unsupervised Machine Learning Algorithm to cluster data into $k$ clusters.
+
+In this algorithm, the data is divided into $k$ user-defined clusters. The algorithm then assigns each point to the nearest cluster centroid iteratively based on a particular metric such as distance. The cluster \textit{centroids} is updated to become the centroid of all the assigned points. The algorithm continues until convergence.
+
+K-Means is a common method for clustering since it is straightforward and effective, especially for big datasets. It is frequently employed in many different fields, including anomaly detection, picture compression, and market segmentation. Despite its ease of use, the K-Means approach can be sensitive to the cluster centroids' initial configuration and may not always yield the optimal result. For exploratory data analysis and pattern recognition, it is still a widely used approach.
+\subsection{Algorithm}
+
+% Add Algorithm
+
+\subsection{Pseudocode}
+\begin{algorithm}
+\caption{K-Means Clustering}
+\begin{algorithmic}[1]
+\Procedure{K-Means}{$X, k$}
+\State $C \gets \{c_1, c_2, \dots, c_k\}$ \Comment{Centroids}
+
+% Add proof of Convergence of K means Clustering
+
+
+
+
+
+
+
+
+
+\section{Image Segmentation}
+\subsection{What is Image Segmentation?}
+aaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaa
+\subsection{Why is Image Segmentation Needed?}
+aaaaaaaaaaaaaaaaaaa
+\section{Image Segmentation Using K Means}
+aaaaaaaaaaaaaaaaaaaaaa
+\section{Exploring Different Values of K}
+aaaaaaaaaaaaaaaaaaaaaaaa
+\section{Metrics for Finding Optimal K}
+aaaaaaaaaaaaaaaaaa
+\section{Finding Optimal K}
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+\subsection{Elbow Method}
+aaaaaaaaaaaa
+\subsection{Silhouette Method}
+dfdaaaaaaaaaaaaaaaaa
+\subsection{Comparison}
+aaaaaaaaaaaaaaaa
+\section{Results}
+aaaaaaaaaaaaaaa
+\section{Conclusion}
+aaaaaaaaaaaaaaaaa
+\end{document}
